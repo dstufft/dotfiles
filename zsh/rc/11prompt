@@ -6,6 +6,7 @@ setopt prompt_subst
 # Some variables to make it easier.
 CURRENT_BG='NONE'
 SEGMENT_SEPARATOR=''
+RSEGMENT_SEPARATOR=''
 
 # Begin a segment
 # Takes two arguments, background and foreground. Both can be omitted,
@@ -23,6 +24,15 @@ prompt_segment() {
   [[ -n $3 ]] && echo -n $3
 }
 
+rprompt_segment() {
+  local bg fg
+  [[ -n $1 ]] && bg="%K{$1}" || bg="%k"
+  [[ -n $2 ]] && fg="%F{$2}" || fg="%f"
+  echo -n " %{$fg%F{$1}%}$RSEGMENT_SEPARATOR%{$bg%}%{$fg%} "
+  CURRENT_BG=$1
+  [[ -n $3 ]] && echo -n $3
+}
+
 # End the prompt, closing any open segments
 prompt_end() {
   if [[ -n $CURRENT_BG ]]; then
@@ -31,6 +41,13 @@ prompt_end() {
     echo -n "%{%k%}"
   fi
   echo -n "%{%f%}"
+  CURRENT_BG=''
+}
+
+rprompt_end() {
+  if [[ -n $CURRENT_BG ]]; then
+      echo -n ' '
+  fi
   CURRENT_BG=''
 }
 
@@ -127,7 +144,7 @@ prompt_dir() {
 prompt_virtualenv() {
   local virtualenv_path="$VIRTUAL_ENV"
   if [[ -n $virtualenv_path && -n $VIRTUAL_ENV_DISABLE_PROMPT ]]; then
-    prompt_segment blue black "(`basename $virtualenv_path`)"
+    rprompt_segment white black "⦕`basename $virtualenv_path`⦖"
   fi
 }
 
@@ -149,7 +166,6 @@ prompt_status() {
 build_prompt() {
   RETVAL=$?
   prompt_status
-  prompt_virtualenv
   prompt_context
   prompt_dir
   prompt_git
@@ -157,4 +173,10 @@ build_prompt() {
   prompt_end
 }
 
+build_rprompt() {
+  prompt_virtualenv
+  rprompt_end
+}
+
 PROMPT='%{%f%b%k%}$(build_prompt) '
+RPROMPT='%{%f%b%k%}$(build_rprompt)'

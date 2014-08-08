@@ -1,0 +1,3 @@
+[ui]
+username = Donald Stufft <donald@stufft.io>
+ignore = ~/.dotfiles/hg/hgignore

@@ -25,6 +25,7 @@ dotfiles_symlink() {
 
 # Define our symlinks
 dotfiles_symlink 'git' '.config/git'
+dotfiles_symlink 'hg/hgrc' '.hgrc'
 
 # Cleanup the namespace
 unfunction dotfiles_symlink

@@ -8,3 +8,7 @@ setopt pushd_ignore_dups
 
 # Reverse directory of popd
 setopt pushd_minus
+
+# Set named directories
+p=~/projects
+: ~p

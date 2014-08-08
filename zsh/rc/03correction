@@ -1,0 +1,4 @@
+#!/usr/bin/env zsh
+
+# Enable correction on everything
+setopt correct_all

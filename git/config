@@ -1,0 +1,19 @@
+[user]
+    name = Donald Stufft
+    email = donald@stufft.io
+    signingkey = 3372DCFA
+
+[core]
+    autocrlf = input
+
+[alias]
+    lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+
+[color]
+    ui = true
+
+[help]
+    autocorrect = 1
+
+[push]
+    default = simple

@@ -1,0 +1,30 @@
+#!/usr/bin/env zsh
+
+# Define where all of our dotfiles are located
+DOTFILES="$HOME/.dotfiles"
+
+# Create a helper function to ensure that our symlink exists and it points where
+# we want it too.
+dotfiles_symlink() {
+    local target="$DOTFILES/$1"
+    local parent="$HOME/$(dirname $2)"
+    local filename="$parent/$(basename $2)"
+
+    if [[ -h $filename && $filename:A == $target:A ]]; then;
+        # Do nothing, we've already setup this function.
+        return
+    elif [[ -h $filename && $filename:A != $target:A ]]; then;
+        echo "The symlink from $2 to $1 is incorrectly setup." >&2
+    elif [[ -a $filename ]]; then;
+        echo "The $2 file exists but it is not the correct symlink." >&2
+    else
+        mkdir -p $parent
+        ln -s "$DOTFILES/$1" "$parent/$(basename $2)"
+    fi
+}
+
+# Define our symlinks
+dotfiles_symlink 'git' '.config/git'
+
+# Cleanup the namespace
+unfunction dotfiles_symlink

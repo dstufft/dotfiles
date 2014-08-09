@@ -1,0 +1,11 @@
+#!/usr/bin/env zsh
+
+# Define our location for where our virtual environments will be stored.
+WORKON_HOME=~/.virtualenvs
+
+# Define a named directory for virtualenvs
+v=$WORKON_HOME
+: ~v
+
+# Source the virtualenvwrapper script
+source "$HOME/.pyenv/versions/$(cat $HOME/.pyenv/version | head -n 1)/bin/virtualenvwrapper.sh"

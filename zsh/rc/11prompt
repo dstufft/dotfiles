@@ -148,6 +148,31 @@ prompt_virtualenv() {
   fi
 }
 
+# Execution time of last command
+prompt_execution() {
+  local total_seconds=$CMD_RUNTIME
+
+  if [[ -n $CMD_RUNTIME ]]; then
+    if [[ $total_seconds -ge 3600 ]]; then
+      local thours="$((total_seconds / 3600))"
+      local remainder="$((total_seconds % 3600))"
+      local tminutes="$((remainder / 60))"
+      local tseconds="$((remainder % 60))"
+      rprompt_segment red black "${thours}h ${tminutes}m ${tseconds}s"
+    elif [[ $total_seconds -ge 60 ]]; then
+      local tminutes="$((total_seconds / 60))"
+      local tseconds="$((total_seconds % 60))"
+      if [[ $tminutes -ge "${TIMER_RED_THRESHOLD:=5}" ]]; then
+        rprompt_segment red black "${tminutes}m ${tseconds}s"
+      else
+        rprompt_segment yellow black "${tminutes}m ${tseconds}s"
+      fi
+    elif [[ $total_seconds -ge "${TIMER_THRESHOLD:=2}" ]]; then
+      rprompt_segment green black "${total_seconds}s"
+    fi
+  fi
+}
+
 # Status:
 # - was there an error
 # - am I root
@@ -174,6 +199,7 @@ build_prompt() {
 }
 
 build_rprompt() {
+  prompt_execution
   prompt_virtualenv
   rprompt_end
 }

@@ -1,0 +1,14 @@
+#!/usr/bin/env zsh
+
+function preexec() {
+  timer=${timer:-$SECONDS}
+}
+
+function precmd() {
+  if [[ -n $timer ]]; then
+    CMD_RUNTIME=$(($SECONDS - $timer))
+    unset timer
+  else
+    unset CMD_RUNTIME
+  fi
+}

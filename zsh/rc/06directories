@@ -9,6 +9,9 @@ setopt pushd_ignore_dups
 # Reverse directory of popd
 setopt pushd_minus
 
+# Automatically CD into directories
+setopt auto_cd
+
 # Set named directories
 p=~/projects
 : ~p

@@ -1,9 +1,14 @@
 #!/usr/bin/env zsh
 
-WRAPPER_SCRIPT="$HOME/.pyenv/versions/$(cat $HOME/.pyenv/version | head -n 1)/bin/virtualenvwrapper.sh"
+if which pyenv &> /dev/null; then
+    # We have pyenv, so use it to determine where our virtualenvwrapper.sh is
+    WRAPPER_SCRIPT=`pyenv which virtualenvwrapper.sh`
+else
+    # We don't have pyenv, so use the normal which
+    WRAPPER_SCRIPT=`which virtualenvwrapper.sh`
+fi
 
-if [ -e "$WRAPPER_SCRIPT" ]
-then
+if [ -e "$WRAPPER_SCRIPT" ]; then
     # Define our location for where our virtual environments will be stored.
     WORKON_HOME=~/.virtualenvs
 

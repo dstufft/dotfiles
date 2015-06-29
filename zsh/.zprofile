@@ -15,6 +15,9 @@ if which pyenv &> /dev/null; then
     eval "$(pyenv init -)";
 fi
 
+# Add our user bin
+PATH="$HOME/.local/bin:$PATH"
+
 # Look for all of the files in our rc directory and source them. This allows us
 # to split up the configuration without having to manually specify every single
 # RC file.

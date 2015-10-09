@@ -13,5 +13,5 @@ setopt pushd_minus
 setopt auto_cd
 
 # Set named directories
-p=~/Projects
+p=~/projects
 : ~p

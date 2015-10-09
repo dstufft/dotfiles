@@ -16,8 +16,8 @@
 	"font_size": 20,
 	"ignored_packages":
 	[
-		"Vintage",
-		"RestructuredText"
+		"RestructuredText",
+		"Vintage"
 	],
 	"rulers":
 	[

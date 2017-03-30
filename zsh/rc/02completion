@@ -5,7 +5,7 @@ fpath=(/usr/local/share/zsh-completions $fpath)
 
 # Load the completion engine and initalize it.
 autoload -U compinit
-compinit
+compinit -u
 
 # Allows you to move the cursor around the list of completions to select one.
 zmodload -i zsh/complist

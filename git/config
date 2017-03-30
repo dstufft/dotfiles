@@ -19,3 +19,7 @@
 
 [push]
     default = simple
+[transfer]
+	fsckobjects = true
+[fetch]
+	fsckobjects = true

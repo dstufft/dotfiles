@@ -44,6 +44,11 @@ fi
 #clean up the namespace slightly by removing the checker function
 unset -v WRAPPER_SCRIPT
 
+# Always use smart case for rg
+alias rg='rg --smart-case'
+
+# Add our user bin
+PATH="$HOME/.local/bin:$PATH"
 
 # Source zim
 if [[ -s ${ZDOTDIR:-${HOME}}/.zim/init.zsh ]]; then

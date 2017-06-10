@@ -3,6 +3,7 @@ zsh/.zcompdump.zwc
 zsh/.zhistory
 zsh/.zshrc.zwc
 zsh/.zim
+zsh/.zcompcache/
 
 Sublime Text 3/Package Control.*
 Sublime Text 3/*.tmTheme

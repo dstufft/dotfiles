@@ -54,3 +54,7 @@ PATH="$HOME/.local/bin:$PATH"
 if [[ -s ${ZDOTDIR:-${HOME}}/.zim/init.zsh ]]; then
   source ${ZDOTDIR:-${HOME}}/.zim/init.zsh
 fi
+
+# Set a color for autosuggestion so that we can actually see it with my regular
+# theme.
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=245"

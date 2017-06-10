@@ -78,7 +78,7 @@ zhighlighters=(main brackets cursor root)
 #
 
 # Load these ssh identities with the ssh module
-zssh_ids=(id_rsa id_ed25519)
+# zssh_ids=(id_rsa id_ed25519)
 
 
 #

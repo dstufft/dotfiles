@@ -7,10 +7,13 @@ DEFAULT_USER=dstufft
 p=~/projects
 : ~p
 
+export CFLAGS="-I$(brew --prefix openssl)/include -I$(brew --prefix sqlite)/include"
+export LDFLAGS="-L$(brew --prefix openssl)/lib -L$(brew --prefix sqlite)/lib"
+
 # If pyenv is present, configure it for use
 if which pyenv &> /dev/null; then
-    PYTHON_CONFIGURE_OPTS='--enable-unicode=ucs4 --with-wide-unicode --enable-ipv6 --enable-loadable-sqlite-extensions --with-computed-gotos'
-    PYTHON_CFLAGS='-O3 -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security'
+    export PYTHON_CONFIGURE_OPTS='--enable-optimizations --enable-unicode=ucs4 --with-wide-unicode --enable-ipv6 --enable-loadable-sqlite-extensions --with-computed-gotos'
+    export PYTHON_CFLAGS="-O3 -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security"
 
     eval "$(pyenv init -)";
 

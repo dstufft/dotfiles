@@ -19,15 +19,10 @@ path=(
     $path
 )
 
-
+# Add any platform specific paths
 if [[ $platform == "windows-wsl" ]]; then
-    path=(
-        $path
-        /mnt/c/WSLBin
-    )
+    path+=( /mnt/c/WSLBin )
 fi
-
-
 
 # -U ensures each entry in these is Unique (that is, discards duplicates).
 export -U PATH path

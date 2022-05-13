@@ -16,6 +16,7 @@ fi
 # for $HOME in each $path entry.
 path=(
     ~/.local/bin
+    ~/.linuxbrew/bin
     $path
 )
 

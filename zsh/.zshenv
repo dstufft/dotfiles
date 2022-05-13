@@ -6,6 +6,3 @@ skip_global_compinit=1
 
 # Set our dot directory to use our settings directory.
 export ZDOTDIR=$HOME/projects/settings/zsh
-
-# Setup some basic path stuff
-export PATH="$HOME/.bin:$PATH"

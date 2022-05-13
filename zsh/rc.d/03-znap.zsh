@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-local znap=$settingsdir/zsh-snap/znap.zsh
+local znap=$settingsdir/zsh/zsh-snap/znap.zsh
 
 # Download Znap, if it's not there yet.
 if ! [[ -r $znap ]]; then
@@ -10,5 +10,5 @@ if ! [[ -r $znap ]]; then
         https://github.com/marlonrichert/zsh-snap.git $znapdir
 fi
 
-# zstyle ':znap:*' repos-dir ~/projects/settings/zsh
+# zstyle ':znap:*' repos-dir ~/.config/zsh
 . $znap     # Load Znap.

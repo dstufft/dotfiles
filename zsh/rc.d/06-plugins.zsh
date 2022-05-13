@@ -7,6 +7,7 @@
 # For more info on each plugin, visit its repo at github.com/<plugin>
 # -a sets the variable's type to array.
 local -a plugins=(
+    zsh-users/zsh-autosuggestions # Real-time type-ahead completion
     ellie/atuin                   # Replace history with an SQLite database w/ syncing
     birdhackor/zsh-exa-ls-plugin  # Use exa instead of ls and tree
     ajeetdsouza/zoxide            # Use zoxide as z

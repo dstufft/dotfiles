@@ -13,6 +13,7 @@ local -a plugins=(
     ajeetdsouza/zoxide            # Use zoxide as z
     zdharma-continuum/fast-syntax-highlighting  # Enable Syntax highlighting
     bossjones/boss-git-zsh-plugin # Add aliases for shorter git
+    sunlei/zsh-ssh                # Better host completion for ssh hosts
 )
 
 

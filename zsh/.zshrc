@@ -4,9 +4,9 @@
         https://github.com/marlonrichert/zsh-snap.git ~/projects/settings/zsh-snap
 
 # Install starship
-if [ ! -f $HOME/.bin/starship ]; then
-    mkdir -p ~/.bin
-    curl -sS https://starship.rs/install.sh | sh -s -- --bin-dir ~/.bin --yes
+if [ ! -f $HOME/.local/bin/starship ]; then
+    mkdir -p ~/.local/bin
+    curl -sS https://starship.rs/install.sh | sh -s -- --bin-dir ~/.local/bin --yes
     rehash
 fi
 

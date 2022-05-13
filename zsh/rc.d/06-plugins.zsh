@@ -9,6 +9,7 @@
 local -a plugins=(
     ellie/atuin                   # Replace history with an SQLite database w/ syncing
     birdhackor/zsh-exa-ls-plugin  # Use exa instead of ls and tree
+    ajeetdsouza/zoxide            # Use zoxide as z
 )
 
 

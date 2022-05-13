@@ -8,6 +8,6 @@ if [[ $platform == "windows-wsl" ]]; then
         setopt LOCAL_OPTIONS NO_NOTIFY NO_MONITOR
 
         # set socat to listen on $SSH_AUTH_SOCK and forward to npiperelay which then forwards to openssh-ssh-agent on windows
-        socat UNIX-LISTEN:$SSH_AUTH_SOCK,fork EXEC:"npiperelay.exe -ei -s //./pipe/openssh-ssh-agent",nofork >/dev/null 2>&1 &!
+        socat UNIX-LISTEN:$SSH_AUTH_SOCK,fork,mode=0750 EXEC:"npiperelay.exe -ei -s //./pipe/openssh-ssh-agent",nofork >/dev/null 2>&1 &!
     }
 fi

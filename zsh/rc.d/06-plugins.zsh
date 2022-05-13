@@ -12,6 +12,7 @@ local -a plugins=(
     birdhackor/zsh-exa-ls-plugin  # Use exa instead of ls and tree
     ajeetdsouza/zoxide            # Use zoxide as z
     zdharma-continuum/fast-syntax-highlighting  # Enable Syntax highlighting
+    bossjones/boss-git-zsh-plugin # Add aliases for shorter git
 )
 
 

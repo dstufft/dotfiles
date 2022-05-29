@@ -1,0 +1,4 @@
+#!/bin/zsh
+##
+# Non Plugins
+#

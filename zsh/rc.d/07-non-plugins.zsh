@@ -14,3 +14,6 @@ if [[ $platform == "windows-wsl" ]]; then
     export AWS_VAULT_BACKEND=pass
     export GPG_TTY=$(tty)
 fi
+
+# Setup CC to use Homebrew
+znap eval cc 'echo export CC=$(brew --prefix)/bin/gcc-11'

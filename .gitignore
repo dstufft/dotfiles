@@ -1,2 +1,4 @@
 zsh/repos
 Brewfile.lock.json
+direnv/lib/use_asdf.sh
+wslu/

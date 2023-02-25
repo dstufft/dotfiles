@@ -19,3 +19,6 @@ fi
 if [[ $platform == "windows-wsl" ]]; then
     znap eval cc "echo export CC=$(brew --prefix)/bin/gcc-$(brew info --json=v1 gcc | jq -rj '.[0].linked_keg | split(".")[0]')"
 fi
+
+# cargo / rustup
+. "$HOME/.cargo/env"

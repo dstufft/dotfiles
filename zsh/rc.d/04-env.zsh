@@ -5,15 +5,31 @@
 #
 
 # Detect what platform we're on, and set our platform var
-if grep -q microsoft /proc/sys/kernel/osrelease; then
+if grep -qs microsoft /proc/sys/kernel/osrelease; then
     local platform="windows-wsl"
+elif [[ `uname` == "Darwin" ]]; then
+    local platform="macos"
 fi
 
-# Setup our Homebrew environments
-export HOMEBREW_BUNDLE_FILE="$HOME/.config/Brewfile"
-export HOMEBREW_PREFIX="/home/linuxbrew/.linuxbrew"
-export HOMEBREW_CELLAR="/home/linuxbrew/.linuxbrew/Cellar"
-export HOMEBREW_REPOSITORY="/home/linuxbrew/.linuxbrew/Homebrew"
+if [[ $platform == "windows-wsl" ]]; then
+    # Setup our Homebrew environments
+    export HOMEBREW_BUNDLE_FILE="$HOME/.config/Brewfile"
+    export HOMEBREW_PREFIX="/home/linuxbrew/.linuxbrew"
+    export HOMEBREW_CELLAR="/home/linuxbrew/.linuxbrew/Cellar"
+    export HOMEBREW_REPOSITORY="/home/linuxbrew/.linuxbrew/Homebrew"
+
+    # Force certain more-secure behaviours from homebrew
+    export HOMEBREW_NO_INSECURE_REDIRECT=1
+    export HOMEBREW_CASK_OPTS=--require-sha
+elif [[ $platform == "macos" ]]; then
+    # Setup our Homebrew environments
+    export HOMEBREW_BUNDLE_FILE="$HOME/.config/Brewfile"
+    export HOMEBREW_PREFIX="/opt/homebrew"
+
+    # Force certain more-secure behaviours from homebrew
+    export HOMEBREW_NO_INSECURE_REDIRECT=1
+    export HOMEBREW_CASK_OPTS=--require-sha
+fi
 
 # Setup our PATH, and FPATH
 # $PATH and $path (and also $FPATH and $fpath, etc.) are "tied" to each other.
@@ -22,28 +38,23 @@ export HOMEBREW_REPOSITORY="/home/linuxbrew/.linuxbrew/Homebrew"
 # for $HOME in each $path entry.
 path=(
     ~/.local/bin
-    ~/.linuxbrew/sbin
-    ~/.linuxbrew/bin
-    /home/linuxbrew/.linuxbrew/bin
-    /home/linuxbrew/.linuxbrew/sbin
+    "$HOMEBREW_PREFIX/bin"
+    "$HOMEBREW_PREFIX/sbin"
     $path
 )
 
 fpath=(
-    ~/.linuxbrew/share/zsh/site-functions
-    /home/linuxbrew/.linuxbrew/share/zsh/site-functions
+    "$HOMEBREW_PREFIX/share/zsh/site-functions"
     $fpath
 )
 
 manpath=(
-    ~/.linuxbrew/share/man
-    /home/linuxbrew/.linuxbrew/share/man
+    "$HOMEBREW_PREFIX/share/man"
     $manpath
 )
 
 infopath=(
-    ~/.linuxbrew/share/info
-    /home/linuxbrew/.linuxbrew/share/info
+    "$HOMEBREW_PREFIX/share/info"
     $infopath
 )
 

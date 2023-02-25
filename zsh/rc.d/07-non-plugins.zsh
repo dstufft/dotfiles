@@ -15,5 +15,7 @@ if [[ $platform == "windows-wsl" ]]; then
     export GPG_TTY=$(tty)
 fi
 
-# Setup CC to use Homebrew
-znap eval cc 'echo export CC=$(brew --prefix)/bin/gcc-11'
+# Setup CC to use Homebrew when we're runninder under WSL
+if [[ $platform == "windows-wsl" ]]; then
+    znap eval cc 'echo export CC=$(brew --prefix)/bin/gcc-12'
+fi

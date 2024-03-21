@@ -13,7 +13,7 @@ fi
 
 if [[ $platform == "windows-wsl" ]]; then
     # Setup our Homebrew environments
-    export HOMEBREW_BUNDLE_FILE="$HOME/.config/Brewfile"
+    export HOMEBREW_BUNDLE_FILE="$DOTFILES_DIR/Brewfile"
     export HOMEBREW_PREFIX="/home/linuxbrew/.linuxbrew"
     export HOMEBREW_CELLAR="/home/linuxbrew/.linuxbrew/Cellar"
     export HOMEBREW_REPOSITORY="/home/linuxbrew/.linuxbrew/Homebrew"
@@ -23,8 +23,18 @@ if [[ $platform == "windows-wsl" ]]; then
     export HOMEBREW_CASK_OPTS=--require-sha
 elif [[ $platform == "macos" ]]; then
     # Setup our Homebrew environments
-    export HOMEBREW_BUNDLE_FILE="$HOME/.config/Brewfile"
+    export HOMEBREW_BUNDLE_FILE="$DOTFILES_DIR/Brewfile"
     export HOMEBREW_PREFIX="/opt/homebrew"
+
+    # Force certain more-secure behaviours from homebrew
+    export HOMEBREW_NO_INSECURE_REDIRECT=1
+    export HOMEBREW_CASK_OPTS=--require-sha
+else
+    # Setup our Homebrew environments
+    export HOMEBREW_BUNDLE_FILE="$DOTFILES_DIR/Brewfile"
+    export HOMEBREW_PREFIX="/home/linuxbrew/.linuxbrew"
+    export HOMEBREW_CELLAR="/home/linuxbrew/.linuxbrew/Cellar"
+    export HOMEBREW_REPOSITORY="/home/linuxbrew/.linuxbrew/Homebrew"
 
     # Force certain more-secure behaviours from homebrew
     export HOMEBREW_NO_INSECURE_REDIRECT=1

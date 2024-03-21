@@ -7,9 +7,6 @@
 # away with the arguments provided and is then discarded.
 # Here, it enables us to use scoped variables in our dotfiles.
 () {
-  # `local` sets the variable's scope to this function and its descendendants.
-  local settingsdir=~/.config  # Where our settings directory is located
-
   # Load all of the files in rc.d that start with <number>- and end in .zsh
   # (n) sorts the results in numerical order.
   # <-> is an open-ended range. It matches any non-negative integer.

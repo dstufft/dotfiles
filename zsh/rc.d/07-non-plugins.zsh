@@ -22,3 +22,12 @@ fi
 
 # cargo / rustup
 . "$HOME/.cargo/env"
+
+# git-machete aliases
+alias gms='git machete status --list-commits-with-hashes'
+alias gmt='git machete traverse --list-commits --fetch'
+alias ggo='git machete go'
+alias gma='git machete add'
+alias gmd='git machete slide-out --delete'
+alias gpr='git machete github create-pr'
+alias gml='gll $(git machete fork-point)..'

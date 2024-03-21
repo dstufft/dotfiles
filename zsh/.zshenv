@@ -5,4 +5,4 @@
 skip_global_compinit=1
 
 # Set our dot directory to use our settings directory.
-export ZDOTDIR=$HOME/.config/zsh
+ZDOTDIR=$HOME/.config/zsh

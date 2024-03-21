@@ -18,3 +18,7 @@ NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Ho
 
 # Install Homebrew Deps
 /home/linuxbrew/.linuxbrew/bin/brew bundle --file $DOTFILES_DIR/Brewfile
+
+# Install asdf versions
+asdf plugin-add python
+asdf intall python

@@ -37,6 +37,9 @@ disabled = true
 [conda]
 disabled = true
 
+[container]
+disabled = true
+
 [crystal]
 disabled = true
 

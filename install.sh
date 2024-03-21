@@ -21,4 +21,4 @@ NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Ho
 
 # Install asdf versions
 asdf plugin-add python
-asdf intall python
+asdf install python

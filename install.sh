@@ -13,5 +13,8 @@ ln -s $DOTFILES_DIR/.tool-versions ~/.tool-versions
 # Install Homebrew
 NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
+# Tap Homebrew core
+/home/linuxbrew/.linuxbrew/bin/brew tap homebrew/core --force
+
 # Install Homebrew Deps
 /home/linuxbrew/.linuxbrew/bin/brew bundle --file $DOTFILES_DIR/Brewfile

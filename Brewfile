@@ -22,3 +22,8 @@ brew "ripgrep"
 brew "starship"
 brew "xz"
 brew "zoxide"
+
+cask "font-iosevka-nerd-font"
+cask "font-iosevka-term-nerd-font"
+
+vscode "GitHub.github-vscode-theme"

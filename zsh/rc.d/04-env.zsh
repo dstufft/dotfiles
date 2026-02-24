@@ -24,7 +24,7 @@ if [[ $platform == "windows-wsl" ]]; then
 elif [[ $platform == "macos" ]]; then
     # Setup our Homebrew environments
     export HOMEBREW_BUNDLE_FILE="$DOTFILES_DIR/Brewfile"
-    export HOMEBREW_PREFIX="/opt/homebrew"
+    export HOMEBREW_PREFIX="/usr/local"
 
     # Force certain more-secure behaviours from homebrew
     export HOMEBREW_NO_INSECURE_REDIRECT=1

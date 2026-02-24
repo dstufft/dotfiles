@@ -9,7 +9,7 @@
 local -a plugins=(
     zsh-users/zsh-autosuggestions # Real-time type-ahead completion
     ellie/atuin                   # Replace history with an SQLite database w/ syncing
-    dstufft/zsh-eza-ls-plugin     # Use exa instead of ls and tree
+    z-shell/zsh-eza               # Use eza instead of ls and tree
     ajeetdsouza/zoxide            # Use zoxide as z
     zdharma-continuum/fast-syntax-highlighting  # Enable Syntax highlighting
     bossjones/boss-git-zsh-plugin # Add aliases for shorter git
